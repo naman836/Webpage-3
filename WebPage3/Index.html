@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online Recruitment Solution</title>
+  <style>
+    /* CSS for page layout and styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    nav {
+      background-color: antiquewhite;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    section {
+      margin: 20px;
+      padding: 20px;
+    }
+    
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    /* CSS for animations */
+    .fade-in {
+      opacity: 0;
+      animation: fadeInAnimation ease-in 1s forwards;
+    }
+    
+    @keyframes fadeInAnimation {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    
+    .slide-in {
+      transform: translateX(-200px);
+      animation: slideInAnimation ease-in 1s forwards;
+    }
+    
+    @keyframes slideInAnimation {
+      0% {
+        transform: translateX(-200px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+    
+    /* Additional styling */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      font-size: 32px;
+    }
+    
+    p {
+      font-size: 18px;
+    }
+    
+    button {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    
+    input[type="text"], input[type="password"] {
+      padding: 10px;
+      width: 100%;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    
+    .search-results {
+      margin-top: 20px;
+    }
+    
+    .candidate {
+      padding: 10px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to the Online Recruitment Solution</h1>
+  </header>
+  
+  <nav>
+    <a href="#home">Home</a> |
+    <a href="#login">Login</a> |
+    <a href="#register">Register</a> |
+    <a href="#search">Search Candidates</a>
+  </nav>
+  
+  <section id="home" class="container">
+    <h2>Efficient Online Recruitment Solution</h2>
+    <p>Welcome everybody, here we're providing you the facilities for a candidate like login, register
+        and search for a particular candidate for a specific job role along with location.
+    </p>
+    <button class="fade-in">Learn More</button>
+  </section>
+  
+  <section id="login" class="container">
+    <h2>Login</h2>
+    <form>
+      <input type="text" placeholder="Username" required>
+      <input type="password" placeholder="Password" required>
+      <button class="slide-in">Login</button>
+    </form>
+  </section>
+  
+  <section id="register" class="container">
+    <h2>Register</h2>
+    <form>
+      <input type="text" placeholder="Username" required>
+      <input type="password" placeholder="Password" required>
+      <button class="slide-in">Register</button>
+    </form>
+  </section>
+  
+  <section id="search" class="container">
+    <h2>Search Candidates</h2>
+    <form>
+      <input type="text" placeholder="Location">
+      <input type="text" placeholder="Job Role">
+      <button class="slide-in">Search</button>
+    </form>
+    <div class="search-results">
+      <div class="candidate fade-in">
+        <h3>Candidate 1</h3>
+        <p>Location: City A</p>
+        <p>Job Role: Role A</p>
+      </div>
+      <div class="candidate fade-in">
+        <h3>Candidate 2</h3>
+        <p>Location: City B</p>
+        <p>Job Role: Role B</p>
+      </div>
+    </div>
+  </section>
+  
+  <footer>
+    <p>&copy; 2023 Online Recruitment Solution. All rights reserved.</p>
+  </footer>
+  
+  <script>
+    // JavaScript for animations
+    const fadeInElements = document.querySelectorAll('.fade-in');
+    const slideInElements = document.querySelectorAll('.slide-in');
+    
+    const fadeInObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'fadeInAnimation ease-in 1s forwards';
+        }
+      });
+    });
+    
+    const slideInObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'slideInAnimation ease-in 1s forwards';
+        }
+      });
+    });
+    
+    fadeInElements.forEach(element => {
+      fadeInObserver.observe(element);
+    });
+    
+    slideInElements.forEach(element => {
+      slideInObserver.observe(element);
+    });
+  </script>
+</body>
+</html>
